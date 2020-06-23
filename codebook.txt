@@ -1,1 +1,10 @@
 
+we have:
+
+1. run_analysis.R, the R script to run to analysis the data and done the 5 tasks;
+2. result.txt , the result of 5th tasks ,the mean of each var ,each activity and subject;
+3. READ.ME, the solution of the 5 tasks
+4. codebook.txt, what was included in the repo
+
+
+
