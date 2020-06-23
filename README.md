@@ -13,19 +13,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Suppose we have the "UCI HAR Dataset" and the sub dir at the project path.
 
-read file ,rename colnames ,merge labels and subject of each row,merge train and test data;
-then group by the whole data by activity and subject,at last summarise_all data with mean function.
+## What did the run_analysis.R do?
 
-```{r cars}
-summary(cars)
-```
+1. read file from train,test dir with x,y,subject.
+2. read the features name and activity labels handle the duplicate feature names and the activity labes join whih activity numbers.
+3. rename colnames ,merge labels and subject of each row.
+4. merge train and test data;
+5. group by the whole data by activity and subject,at last summarise_all data with mean function.
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
