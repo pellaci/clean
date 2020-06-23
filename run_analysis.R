@@ -14,20 +14,29 @@ cnames <- read.csv("./UCI HAR Dataset/features.txt",header = FALSE,sep="")
 
 vnames <- unlist(as.vector(cnames[,2]))
 
+# read the labels and activity type and rename 
+labels <- read.csv(file="./UCI HAR Dataset/activity_labels.txt", sep="", header = FALSE)
+colnames(labels) <- c("activity_num","activity_labels")
 # rename colnames of train and test x y
 colnames(train_y) <- c("label")
+train_y<-left_join(train_y,labels,by=c("label" = "activity_num"))
 
 colnames(test_y) <- c("label")
+test_y<-left_join(test_y,labels,by=c("label" = "activity_num"))
 
 colnames(train_x) <- vnames
 
 colnames(test_x) <- vnames
 
 # merge the x,y ,and the train and test ,var data is the tidy data now
-train <- cbind(train_x,train_y)
-test <- cbind(test_x,test_y)
-data <- rbind(train,test)
+# Done request 3 Uses descriptive activity names to name the activities in the data set
+train <- cbind(train_x,train_y['activity_labels'])
+test <- cbind(test_x,test_y['activity_labels'])
 
+# Done request 1 merge the train and test data
+data <- rbind(train,test)  
+
+# Done request 2
 # var mean_std is the only the measurements on the mean and standard deviation for each measurement
 mean_std <- select(data, contains("mean()") | contains("std()"))
 
