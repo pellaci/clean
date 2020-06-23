@@ -33,3 +33,5 @@ mean_std <- select(data, contains("mean()") | contains("std()"))
 
 # var angle is tidy data set with the average of each variable for each activity and each subject
 angle <- select(data,contains("angle"))
+
+write.table(angle,file="angle.txt",row.names = FALSE)
